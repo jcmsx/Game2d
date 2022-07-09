@@ -67,5 +67,6 @@ C:\Users\jcmsx\My project\Temp\bin\Debug\UnityEditor.SpatialTracking.xml
 C:\Users\jcmsx\My project\Temp\bin\Debug\UnityEngine.SpatialTracking.xml
 C:\Users\jcmsx\My project\Temp\bin\Debug\UnityEditor.VR.xml
 C:\Users\jcmsx\My project\Temp\bin\Debug\UnityEditor.iOS.Extensions.Xcode.xml
+C:\Users\jcmsx\My project\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 C:\Users\jcmsx\My project\obj\Debug\Assembly-CSharp.dll
 C:\Users\jcmsx\My project\obj\Debug\Assembly-CSharp.pdb

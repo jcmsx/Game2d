@@ -15,6 +15,7 @@ public class Player : MonoBehaviour {
 	private bool jumping;
 	private bool facingRight = true;
 	private bool isAlive = true;
+	private bool levelCompleted = false;
 
 	private Rigidbody2D rb2D;
 	private Animator anim;
@@ -48,7 +49,7 @@ public class Player : MonoBehaviour {
 	void FixedUpdate(){
 
 
-		if (isAlive) {
+		if (isAlive && !levelCompleted) {
 
 			float move = Input.GetAxis ("Horizontal");
 
@@ -81,7 +82,12 @@ public class Player : MonoBehaviour {
 
 	void PlayAnimations(){
 
-		if (!isAlive) {
+		if (levelCompleted) {
+			anim.Play ("Celebrate");
+
+		} 
+
+		else if (!isAlive) {
 
 			anim.Play ("Die");
 		}
@@ -107,9 +113,9 @@ public class Player : MonoBehaviour {
 
 		}
 
-	void OnCollisionEnter2D (Collision2D Other){
+	void OnCollisionEnter2D (Collision2D other){
 
-		if (Other.gameObject.CompareTag ("Enemy")) {
+		if (other.gameObject.CompareTag ("Enemy")) {
 			PlayerDie ();
 		
 			}
@@ -122,6 +128,16 @@ public class Player : MonoBehaviour {
 		Physics2D.IgnoreLayerCollision (9, 10);
 
 	}
+
+	void OnTriggerEnter2D (Collider2D other){
+
+		if (other.CompareTag ("Exit")) {
+			levelCompleted = true;
+
+		}
+
+	}
+
 
 }
 

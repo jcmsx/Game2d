@@ -53,6 +53,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Camera.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
+     <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Gem.cs" />
      <Compile Include="Assets\Scripts\GemColect.cs" />
      <Compile Include="Assets\Scripts\Parallax.cs" />
