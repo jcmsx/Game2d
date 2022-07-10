@@ -45,6 +45,11 @@ public class GameManager : MonoBehaviour {
 
 		status = GameStatus.PLAY;
 
+		overlay.enabled = false;
+
+		Physics2D.IgnoreLayerCollision (9, 10, false);
+
+
 	}
 	
 	// Update is called once per frame
@@ -62,19 +67,31 @@ public class GameManager : MonoBehaviour {
 				scoreHud.text = "Score: " + score.ToString ();
 
 			}
-
-
-		} else if (status == GameStatus.WIN) {
-
-			SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
-
-
-		} else {
+		} else if (Input.GetButtonDown("Jump")){
 			
-			SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
+			if (status == GameStatus.WIN) {
 
+				SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
+
+
+			} else {
+			
+				SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
+			}
 	}
 }
 
+
+	public void SetOverlay(GameStatus parStatus){
+
+		status = parStatus;
+
+		overlay.enabled = true;
+
+		overlay.sprite = overlaySprites [(int)parStatus];
+
+
+
+	}
 }
 
