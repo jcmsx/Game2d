@@ -22,6 +22,9 @@ public class Player : MonoBehaviour {
 	private Animator anim;
 
 
+	public AudioClip fxWin;
+	public AudioClip fxDie;
+	public AudioClip fxJump;
 
 
 	// Use this for initialization
@@ -37,10 +40,11 @@ public class Player : MonoBehaviour {
 		grounded = Physics2D.OverlapCircle (groundCheck.position, 0.2f, layerGround);
 
 		if (Input.GetButtonDown ("Jump") && grounded) {
-
-
+			
 			jumping = true;
 
+			if (isAlive && !levelCompleted)
+			SoundManager.instance.PlayfxPlayer (fxJump);
 		}
 
 		if ((int)GameManager.instance.time <= 0 && !timeIsOver) {
@@ -133,6 +137,7 @@ public class Player : MonoBehaviour {
 
 		isAlive = false;
 		Physics2D.IgnoreLayerCollision (9, 10);
+		SoundManager.instance.PlayfxPlayer (fxDie);
 
 	}
 
@@ -140,7 +145,7 @@ public class Player : MonoBehaviour {
 
 		if (other.CompareTag ("Exit")) {
 			levelCompleted = true;
-
+			SoundManager.instance.PlayfxPlayer (fxWin);
 		}
 
 	}

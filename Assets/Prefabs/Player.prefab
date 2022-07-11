@@ -144,6 +144,9 @@ MonoBehaviour:
     m_Bits: 256
   gradiusCheck: 0.2
   grounded: 0
+  fxWin: {fileID: 8300000, guid: d98b2a68c92396543813440958e3c49e, type: 3}
+  fxDie: {fileID: 8300000, guid: 2a2cd1c160c514142b7b8fbd3c5c89a8, type: 3}
+  fxJump: {fileID: 8300000, guid: 1e97e76d3437b7942adfdd91c031c4ed, type: 3}
 --- !u!212 &212970271371051344
 SpriteRenderer:
   m_ObjectHideFlags: 1
